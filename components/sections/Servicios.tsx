@@ -159,6 +159,22 @@ export function Servicios() {
           </div>
         </div>
 
+        {/* CTA → página de detalle */}
+        <motion.div
+          variants={staggerItem}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+          className="mt-12 flex flex-col sm:flex-row gap-4 items-start"
+        >
+          <Button variant="primary" size="md" href="/servicios">
+            Ver todos los tratamientos en detalle →
+          </Button>
+          <Button variant="ghost" size="md" href="/#contacto">
+            Solicitar consulta
+          </Button>
+        </motion.div>
+
       </div>
     </section>
   )

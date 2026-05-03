@@ -11,6 +11,7 @@ import {
 } from '@/lib/animations'
 import { filosofiaData } from '@/lib/filosofia'
 import { SectionLabel } from '@/components/ui/SectionLabel'
+import { Button } from '@/components/ui/Button'
 
 export function Filosofia() {
   return (
@@ -83,6 +84,19 @@ export function Filosofia() {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* CTA → página de detalle */}
+          <motion.div
+            variants={staggerItem}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="mt-12 pt-12 border-t border-white/10 flex flex-col sm:flex-row gap-4"
+          >
+            <Button variant="gold" size="md" href="/filosofia">
+              Conocer nuestra filosofía →
+            </Button>
           </motion.div>
 
         </div>

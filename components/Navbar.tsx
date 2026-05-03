@@ -6,10 +6,10 @@ import { navbarVariants, mobileMenuVariants, staggerItem } from '@/lib/animation
 import { Button } from '@/components/ui/Button'
 
 const navLinks = [
-  { label: 'Filosofía', href: '#filosofia' },
-  { label: 'Servicios', href: '#servicios' },
-  { label: 'Transformaciones', href: '#antes-despues' },
-  { label: 'Contacto', href: '#contacto' },
+  { label: 'Filosofía', href: '/filosofia' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Transformaciones', href: '/#antes-despues' },
+  { label: 'Contacto', href: '/#contacto' },
 ]
 
 export function Navbar() {
