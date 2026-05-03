@@ -37,7 +37,7 @@ export function Hero() {
         {/* Tight core glow */}
         <motion.div
           initial={{ width: '8rem' }}
-          animate={{ width: '16rem' }}
+          animate={{ width: '20rem' }}
           transition={{ ease: 'easeInOut', delay: 0.3, duration: 0.8 }}
           className="absolute top-0 z-30 h-36 rounded-full blur-2xl"
           style={{ backgroundColor: GOLD, transform: 'translateY(-20%)' }}
@@ -46,7 +46,7 @@ export function Hero() {
         {/* Filament line */}
         <motion.div
           initial={{ width: '15rem', opacity: 0 }}
-          animate={{ width: '30rem', opacity: 1 }}
+          animate={{ width: '84vw', opacity: 1 }}
           transition={{ ease: 'easeInOut', delay: 0.35, duration: 0.8 }}
           className="absolute inset-auto z-50 h-px"
           style={{ backgroundColor: GOLD, transform: 'translateY(250%)' }}
@@ -55,7 +55,7 @@ export function Hero() {
         {/* Left cone */}
         <motion.div
           initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '30rem' }}
+          animate={{ opacity: 1, width: '42vw' }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           className="absolute inset-auto right-1/2 h-56 overflow-visible"
           style={{
@@ -83,7 +83,7 @@ export function Hero() {
         {/* Right cone */}
         <motion.div
           initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '30rem' }}
+          animate={{ opacity: 1, width: '42vw' }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
           className="absolute inset-auto left-1/2 h-56 overflow-visible"
           style={{
