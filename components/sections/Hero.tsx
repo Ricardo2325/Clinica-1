@@ -28,13 +28,13 @@ export function Hero() {
         {/* Backdrop blur strip */}
         <div className="absolute top-0 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md" />
 
-        {/* Wide ambient glow */}
+        {/* Wide ambient glow — pushed to ~200px to iluminar el título */}
         <div
-          className="absolute inset-auto z-50 h-36 w-[28rem] rounded-full blur-3xl"
-          style={{ backgroundColor: GOLD, opacity: 0.75, transform: 'translateY(30%)' }}
+          className="absolute inset-auto z-50 h-48 w-[36rem] rounded-full blur-3xl"
+          style={{ backgroundColor: GOLD, opacity: 0.6, transform: 'translateY(140%)' }}
         />
 
-        {/* Tight core glow */}
+        {/* Tight core glow — anclado en el top */}
         <motion.div
           initial={{ width: '8rem' }}
           animate={{ width: '20rem' }}
@@ -57,13 +57,13 @@ export function Hero() {
           initial={{ opacity: 0.5, width: '15rem' }}
           animate={{ opacity: 1, width: '42vw' }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
-          className="absolute inset-auto right-1/2 h-56 overflow-visible"
+          className="absolute inset-auto right-1/2 h-[30rem] overflow-visible"
           style={{
             backgroundImage: `conic-gradient(from 70deg at center top, ${GOLD}, transparent, transparent)`,
           }}
         >
           <div
-            className="absolute inset-x-0 bottom-0 h-40 z-20"
+            className="absolute inset-x-0 bottom-0 h-20 z-20"
             style={{
               backgroundColor: NIGHT,
               maskImage: 'linear-gradient(to top, white, transparent)',
@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0.5, width: '15rem' }}
           animate={{ opacity: 1, width: '42vw' }}
           transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
-          className="absolute inset-auto left-1/2 h-56 overflow-visible"
+          className="absolute inset-auto left-1/2 h-[30rem] overflow-visible"
           style={{
             backgroundImage: `conic-gradient(from 290deg at center top, transparent, transparent, ${GOLD})`,
           }}
@@ -99,7 +99,7 @@ export function Hero() {
             }}
           />
           <div
-            className="absolute inset-x-0 bottom-0 h-40 z-20"
+            className="absolute inset-x-0 bottom-0 h-20 z-20"
             style={{
               backgroundColor: NIGHT,
               maskImage: 'linear-gradient(to top, white, transparent)',
