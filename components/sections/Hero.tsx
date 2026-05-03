@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 import {
   staggerContainerSlow,
   staggerItem,
@@ -8,119 +9,186 @@ import {
 } from '@/lib/animations'
 import { clinicaData, stats } from '@/lib/data'
 import { Button } from '@/components/ui/Button'
-import { SectionLabel } from '@/components/ui/SectionLabel'
 
+// ─── Lamp Container adaptado a paleta dental premium ─────────────────────────
+function LampContainer({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <div
+      className={cn(
+        'relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-midnight w-full z-0',
+        className
+      )}
+    >
+      {/* Lamp beams */}
+      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0">
+
+        {/* Left beam — gold conic */}
+        <motion.div
+          initial={{ opacity: 0.3, width: '12rem' }}
+          animate={{ opacity: 1, width: '28rem' }}
+          transition={{ delay: 0.2, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          style={{ backgroundImage: 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))' }}
+          className="absolute inset-auto right-1/2 h-56 overflow-visible w-[28rem] bg-gradient-conic from-gold via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
+        >
+          {/* Feather bottom */}
+          <div className="absolute w-full left-0 bg-midnight h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+          {/* Feather left edge */}
+          <div className="absolute w-40 h-full left-0 bg-midnight bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
+        </motion.div>
+
+        {/* Right beam — gold conic */}
+        <motion.div
+          initial={{ opacity: 0.3, width: '12rem' }}
+          animate={{ opacity: 1, width: '28rem' }}
+          transition={{ delay: 0.2, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          style={{ backgroundImage: 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))' }}
+          className="absolute inset-auto left-1/2 h-56 w-[28rem] bg-gradient-conic from-transparent via-transparent to-gold text-white [--conic-position:from_290deg_at_center_top]"
+        >
+          {/* Feather right edge */}
+          <div className="absolute w-40 h-full right-0 bg-midnight bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
+          {/* Feather bottom */}
+          <div className="absolute w-full right-0 bg-midnight h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
+        </motion.div>
+
+        {/* Floor shadow — anchors the light to the stage */}
+        <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-midnight blur-2xl" />
+
+        {/* Atmosphere haze */}
+        <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md" />
+
+        {/* Core glow — wide, warm */}
+        <div className="absolute inset-auto z-50 h-36 w-[26rem] -translate-y-1/2 rounded-full bg-gold/20 blur-3xl" />
+
+        {/* Core glow — tight, bright */}
+        <motion.div
+          initial={{ width: '6rem' }}
+          animate={{ width: '14rem' }}
+          transition={{ delay: 0.2, duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-auto z-30 h-36 -translate-y-[6rem] rounded-full bg-gold/40 blur-2xl"
+        />
+
+        {/* Horizontal beam line — the lamp filament */}
+        <motion.div
+          initial={{ width: '12rem', opacity: 0 }}
+          animate={{ width: '28rem', opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="absolute inset-auto z-50 h-px -translate-y-[7rem] bg-gold/70"
+        />
+
+        {/* Stage floor — cuts light below beam center */}
+        <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-midnight" />
+      </div>
+
+      {/* Content — sits on top of stage */}
+      <div className="relative z-50 flex -translate-y-72 lg:-translate-y-80 flex-col items-center px-5 w-full max-w-5xl mx-auto">
+        {children}
+      </div>
+    </div>
+  )
+}
+
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-end pb-24 pt-32 overflow-hidden bg-ivory">
-
-      {/* Right side image panel */}
-      <div className="absolute top-0 right-0 w-full lg:w-[55%] h-full overflow-hidden">
-        <div className="w-full h-full bg-gradient-to-bl from-steel/20 via-pearl to-ivory" />
-        {/* Geometric accent lines */}
-        <div className="absolute top-1/4 right-12 w-px h-48 bg-gold/20" />
-        <div className="absolute top-1/4 right-20 w-px h-32 bg-gold/10" />
-        {/* Left fade into ivory */}
-        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-ivory to-transparent" />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ivory to-transparent" />
-        {/* Placeholder label */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5">
-          <span className="font-display text-8xl font-light text-midnight rotate-90 tracking-[0.3em]">
-            AUREUM
+    <LampContainer>
+      <motion.div
+        variants={staggerContainerSlow}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-col items-center text-center w-full"
+      >
+        {/* Tagline */}
+        <motion.div variants={staggerItem} className="flex items-center gap-3 mb-8">
+          <div className="w-6 h-px bg-gold/60" />
+          <span className="text-xs font-body font-medium uppercase tracking-[0.22em] text-gold/70">
+            {clinicaData.tagline}
           </span>
-        </div>
-      </div>
+          <div className="w-6 h-px bg-gold/60" />
+        </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
-        <div className="max-w-xl">
-          <motion.div
-            variants={staggerContainerSlow}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={staggerItem}>
-              <SectionLabel>{clinicaData.tagline}</SectionLabel>
-            </motion.div>
-
-            {/* Hero title — line by line reveal */}
-            <motion.div variants={staggerItem} className="overflow-hidden mb-1">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[82px] text-midnight"
-              >
-                La sonrisa
-              </motion.h1>
-            </motion.div>
-            <motion.div variants={staggerItem} className="overflow-hidden mb-1">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[82px] text-midnight italic"
-              >
-                que siempre
-              </motion.h1>
-            </motion.div>
-            <motion.div variants={staggerItem} className="overflow-hidden mb-8">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[82px] text-midnight"
-              >
-                imaginaste.
-              </motion.h1>
-            </motion.div>
-
-            {/* Gold line */}
-            <motion.div
-              variants={lineExpandVariants}
-              className="w-16 h-px bg-gold mb-8"
-              style={{ transformOrigin: 'left' }}
-            />
-
-            <motion.p
-              variants={staggerItem}
-              className="text-muted font-body text-lg leading-relaxed max-w-sm mb-10"
+        {/* Title — line by line reveal */}
+        <div className="mb-8">
+          <div className="overflow-hidden mb-1">
+            <motion.h1
+              variants={textRevealVariants}
+              className="display-text text-6xl lg:text-7xl xl:text-[88px] text-white leading-[1.05]"
             >
-              Odontología estética de alto nivel en Madrid.
-              Diseño digital de sonrisa, carillas y tratamientos de precisión
-              para resultados que duran décadas.
-            </motion.p>
-
-            {/* Stats */}
-            <motion.div variants={staggerItem} className="flex flex-wrap gap-8 mb-12">
-              {stats.map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="font-display text-3xl font-light text-midnight">{stat.valor}</span>
-                  <span className="text-[10px] font-body text-muted uppercase tracking-wider mt-1">
-                    {stat.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div variants={staggerItem} className="flex flex-wrap gap-4">
-              <Button variant="primary" size="lg" href="#contacto">
-                {clinicaData.ctaPrincipal} →
-              </Button>
-              <Button variant="ghost" size="lg" href="#antes-despues">
-                {clinicaData.ctaSecundario}
-              </Button>
-            </motion.div>
-
-          </motion.div>
+              La sonrisa
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden mb-1">
+            <motion.h1
+              variants={textRevealVariants}
+              className="display-text text-6xl lg:text-7xl xl:text-[88px] text-gold italic leading-[1.05]"
+            >
+              que siempre
+            </motion.h1>
+          </div>
+          <div className="overflow-hidden">
+            <motion.h1
+              variants={textRevealVariants}
+              className="display-text text-6xl lg:text-7xl xl:text-[88px] text-white leading-[1.05]"
+            >
+              imaginaste.
+            </motion.h1>
+          </div>
         </div>
-      </div>
+
+        {/* Gold divider */}
+        <motion.div
+          variants={lineExpandVariants}
+          className="h-px bg-gold/50 mb-8"
+          style={{ width: '4rem', transformOrigin: 'center' }}
+        />
+
+        {/* Subtitle */}
+        <motion.p
+          variants={staggerItem}
+          className="text-white/45 font-body text-base lg:text-lg leading-relaxed max-w-md mb-12"
+        >
+          Odontología estética de alto nivel en Madrid.
+          Carillas, implantes y ortodoncia invisible con tecnología
+          de precisión y resultados que duran décadas.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 mb-16">
+          <Button variant="gold" size="lg" href="/#contacto">
+            {clinicaData.ctaPrincipal} →
+          </Button>
+          <Button variant="outline" size="lg" href="/#antes-despues">
+            <span className="text-white/60 border-white/20">{clinicaData.ctaSecundario}</span>
+          </Button>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          variants={staggerItem}
+          className="flex flex-wrap justify-center gap-x-12 gap-y-6 border-t border-white/10 pt-10 w-full max-w-2xl"
+        >
+          {stats.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center">
+              <span className="font-display text-3xl lg:text-4xl font-light text-white">
+                {stat.valor}
+              </span>
+              <span className="text-[10px] font-body text-white/35 uppercase tracking-[0.18em] mt-1">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+      </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 2.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <div className="w-px h-12 bg-gold/30 animate-pulse" />
+        <div className="w-px h-10 bg-gold/25 animate-pulse" />
       </motion.div>
-    </section>
+    </LampContainer>
   )
 }

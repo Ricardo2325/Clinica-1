@@ -40,6 +40,9 @@ const config: Config = {
         'luxury-md': '0 8px 24px rgba(10,22,40,0.10)',
         'luxury-lg': '0 20px 48px rgba(10,22,40,0.14)',
       },
+      backgroundImage: {
+        'gradient-conic': 'conic-gradient(var(--conic-position), var(--tw-gradient-stops))',
+      },
     },
   },
   plugins: [],
