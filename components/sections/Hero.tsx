@@ -1,217 +1,169 @@
 'use client'
 import { motion } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import {
   staggerContainerSlow,
   staggerItem,
-  textRevealVariants,
+  fadeLeftVariants,
   lineExpandVariants,
 } from '@/lib/animations'
 import { clinicaData, stats } from '@/lib/data'
 import { Button } from '@/components/ui/Button'
 
-const GOLD   = 'rgba(201,169,110,0.65)'
-const GOLD_S = 'rgba(201,169,110,0.5)'
-const NIGHT  = '#0A1628'
+const contactItems = [
+  {
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
+      </svg>
+    ),
+    text: clinicaData.ubicacion,
+  },
+  {
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+      </svg>
+    ),
+    text: clinicaData.telefono,
+  },
+  {
+    icon: (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    ),
+    text: clinicaData.email,
+  },
+]
 
 export function Hero() {
   return (
-    <section
-      className={cn(
-        'relative z-0 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden',
-      )}
-      style={{ backgroundColor: NIGHT }}
-    >
-      {/* ── Lamp layer — hangs from top ────────────────────────────────── */}
-      <div className="absolute top-0 isolate z-0 flex w-full flex-1 items-start justify-center">
+    <section className="relative flex min-h-screen w-full overflow-hidden bg-ivory">
 
-        {/* Backdrop blur strip */}
-        <div className="absolute top-0 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md" />
-
-        {/* Wide ambient glow — concentrado arriba, se desvanece por blur */}
-        <div
-          className="absolute inset-auto z-50 h-32 w-[24rem] rounded-full blur-3xl"
-          style={{ backgroundColor: GOLD, opacity: 0.28, transform: 'translateY(50%)' }}
-        />
-
-        {/* Tight core glow — punto brillante en el filamento */}
-        <motion.div
-          initial={{ width: '6rem' }}
-          animate={{ width: '14rem' }}
-          transition={{ ease: 'easeInOut', delay: 0.3, duration: 0.8 }}
-          className="absolute top-0 z-30 h-28 rounded-full blur-2xl"
-          style={{ backgroundColor: GOLD, opacity: 0.7, transform: 'translateY(-10%)' }}
-        />
-
-        {/* Filament line */}
-        <motion.div
-          initial={{ width: '15rem', opacity: 0 }}
-          animate={{ width: '84vw', opacity: 1 }}
-          transition={{ ease: 'easeInOut', delay: 0.35, duration: 0.8 }}
-          className="absolute inset-auto z-50 h-px"
-          style={{ backgroundColor: GOLD, transform: 'translateY(250%)' }}
-        />
-
-        {/* Left cone */}
-        <motion.div
-          initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '42vw' }}
-          transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
-          className="absolute inset-auto right-1/2 h-[30rem] overflow-visible"
-          style={{
-            backgroundImage: `conic-gradient(from 70deg at center top, ${GOLD}, transparent, transparent)`,
-          }}
-        >
-          <div
-            className="absolute inset-x-0 bottom-0 h-20 z-20"
-            style={{
-              backgroundColor: NIGHT,
-              maskImage: 'linear-gradient(to top, white, transparent)',
-              WebkitMaskImage: 'linear-gradient(to top, white, transparent)',
-            }}
-          />
-          <div
-            className="absolute left-0 inset-y-0 w-40 z-20"
-            style={{
-              backgroundColor: NIGHT,
-              maskImage: 'linear-gradient(to right, white, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, white, transparent)',
-            }}
-          />
-        </motion.div>
-
-        {/* Right cone */}
-        <motion.div
-          initial={{ opacity: 0.5, width: '15rem' }}
-          animate={{ opacity: 1, width: '42vw' }}
-          transition={{ delay: 0.3, duration: 0.8, ease: 'easeInOut' }}
-          className="absolute inset-auto left-1/2 h-[30rem] overflow-visible"
-          style={{
-            backgroundImage: `conic-gradient(from 290deg at center top, transparent, transparent, ${GOLD})`,
-          }}
-        >
-          <div
-            className="absolute right-0 inset-y-0 w-40 z-20"
-            style={{
-              backgroundColor: NIGHT,
-              maskImage: 'linear-gradient(to left, white, transparent)',
-              WebkitMaskImage: 'linear-gradient(to left, white, transparent)',
-            }}
-          />
-          <div
-            className="absolute inset-x-0 bottom-0 h-20 z-20"
-            style={{
-              backgroundColor: NIGHT,
-              maskImage: 'linear-gradient(to top, white, transparent)',
-              WebkitMaskImage: 'linear-gradient(to top, white, transparent)',
-            }}
-          />
-        </motion.div>
-
-      </div>
-
-      {/* ── Content ────────────────────────────────────────────────────── */}
+      {/* ── Left panel — 45% ─────────────────────────────────────────── */}
       <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ ease: 'easeInOut', delay: 0.3, duration: 0.9 }}
-        className="relative z-50 flex flex-1 flex-col items-center justify-center px-5 w-full max-w-4xl text-center -translate-y-16"
+        variants={staggerContainerSlow}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 flex w-full flex-col justify-between px-8 py-10 md:w-[45%] md:px-12 lg:px-16 xl:px-20"
       >
-        <motion.div
-          variants={staggerContainerSlow}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col items-center w-full gap-0"
-        >
+        {/* Top: logo placeholder (Navbar is fixed, so just vertical spacer) */}
+        <div className="h-16 lg:h-20" />
+
+        {/* Main content */}
+        <div className="flex-1 flex flex-col justify-center py-12">
+
           {/* Tagline */}
-          <motion.div variants={staggerItem} className="flex items-center gap-3 mb-8">
-            <div className="w-6 h-px" style={{ backgroundColor: GOLD_S }} />
-            <span
-              className="text-xs font-body font-medium uppercase tracking-[0.22em]"
-              style={{ color: GOLD_S }}
-            >
-              {clinicaData.tagline}
-            </span>
-            <div className="w-6 h-px" style={{ backgroundColor: GOLD_S }} />
+          <motion.div variants={staggerItem} className="flex items-center gap-3 mb-10">
+            <div className="w-5 h-px bg-gold" />
+            <span className="section-label">{clinicaData.tagline}</span>
           </motion.div>
 
           {/* Title */}
-          <div className="mb-8">
-            <div className="overflow-hidden mb-1">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[86px] text-white leading-[1.05]"
-              >
-                La sonrisa
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden mb-1">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[86px] italic leading-[1.05]"
-                style={{ color: '#C9A96E' }}
-              >
-                que siempre
-              </motion.h1>
-            </div>
-            <div className="overflow-hidden">
-              <motion.h1
-                variants={textRevealVariants}
-                className="display-text text-6xl lg:text-7xl xl:text-[86px] text-white leading-[1.05]"
-              >
-                imaginaste.
-              </motion.h1>
-            </div>
-          </div>
+          <motion.div variants={fadeLeftVariants}>
+            <h1 className="display-text text-5xl lg:text-6xl xl:text-[68px] text-midnight leading-[1.05] mb-1">
+              La sonrisa
+            </h1>
+            <h1 className="display-text text-5xl lg:text-6xl xl:text-[68px] text-midnight italic leading-[1.05] mb-1">
+              que siempre
+            </h1>
+            <h1 className="display-text text-5xl lg:text-6xl xl:text-[68px] text-midnight leading-[1.05]">
+              imaginaste.
+            </h1>
+          </motion.div>
 
           {/* Gold line */}
           <motion.div
             variants={lineExpandVariants}
-            className="h-px mb-8"
-            style={{ width: '4rem', backgroundColor: GOLD_S, transformOrigin: 'center' }}
+            className="h-px bg-gold my-8"
+            style={{ width: '3.5rem', transformOrigin: 'left' }}
           />
 
           {/* Subtitle */}
           <motion.p
             variants={staggerItem}
-            className="font-body text-base lg:text-lg leading-relaxed max-w-md mb-10"
-            style={{ color: 'rgba(255,255,255,0.45)' }}
+            className="font-body text-base leading-relaxed text-muted max-w-xs mb-10"
           >
-            Odontología estética de alto nivel en Madrid.
-            Carillas, implantes y ortodoncia invisible con tecnología
-            de precisión y resultados que duran décadas.
+            Diseño digital de sonrisa, carillas de porcelana e implantes
+            con tecnología de precisión. Resultados que duran décadas.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div variants={staggerItem} className="flex flex-col sm:flex-row gap-4 mb-14">
-            <Button variant="gold" size="lg" href="/#contacto">
+          {/* CTA */}
+          <motion.div variants={staggerItem} className="flex flex-wrap gap-3 mb-12">
+            <Button variant="primary" size="lg" href="/#contacto">
               {clinicaData.ctaPrincipal} →
             </Button>
-            <Button variant="ghost" size="lg" href="/#antes-despues">
-              <span style={{ color: 'rgba(255,255,255,0.5)' }}>{clinicaData.ctaSecundario}</span>
+            <Button variant="ghost" size="md" href="/#antes-despues">
+              {clinicaData.ctaSecundario}
             </Button>
           </motion.div>
 
           {/* Stats */}
           <motion.div
             variants={staggerItem}
-            className="flex flex-wrap justify-center gap-x-12 gap-y-5 pt-10 w-full max-w-2xl"
-            style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}
+            className="grid grid-cols-2 gap-x-8 gap-y-5 pt-8 border-t border-ink-subtle"
           >
             {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <span className="font-display text-3xl lg:text-4xl font-light text-white">
+              <div key={stat.label}>
+                <span className="font-display text-3xl font-light text-midnight block leading-none">
                   {stat.valor}
                 </span>
-                <span
-                  className="text-[10px] font-body uppercase tracking-[0.18em] mt-1"
-                  style={{ color: 'rgba(255,255,255,0.35)' }}
-                >
+                <span className="text-[10px] font-body text-muted uppercase tracking-[0.16em] mt-1 block">
                   {stat.label}
                 </span>
               </div>
             ))}
           </motion.div>
+        </div>
+
+        {/* Bottom: contact footer */}
+        <motion.footer
+          variants={staggerItem}
+          className="flex flex-col gap-2.5 pt-8 border-t border-ink-subtle"
+        >
+          {contactItems.map((item, i) => (
+            <div key={i} className="flex items-center gap-2.5 text-muted">
+              <span className="text-gold shrink-0">{item.icon}</span>
+              <span className="font-body text-xs tracking-wide">{item.text}</span>
+            </div>
+          ))}
+        </motion.footer>
+      </motion.div>
+
+      {/* ── Right panel — 55%, clip-path reveal ─────────────────────── */}
+      <motion.div
+        className="absolute inset-y-0 right-0 w-full md:w-[58%]"
+        initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
+        animate={{ clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)' }}
+        transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+      >
+        {/* Image — reemplazar src con foto real de la clínica */}
+        <Image
+          src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1400&q=90"
+          alt="Clínica Aureum Dental — Madrid"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="58vw"
+        />
+
+        {/* Overlay: borde izquierdo suave para fundir con ivory */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ivory to-transparent z-10" />
+
+        {/* Overlay: viñeta bottom */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-midnight/20 to-transparent z-10" />
+
+        {/* Año fundación — detalle editorial en la esquina */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="absolute bottom-8 right-8 z-20 text-right"
+        >
+          <span className="font-display text-xs font-light text-white/60 uppercase tracking-[0.2em]">
+            Est. {clinicaData.añosFundacion}
+          </span>
         </motion.div>
       </motion.div>
 
@@ -220,12 +172,9 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-8 md:left-[calc(45%-1.5rem)] z-20"
       >
-        <div
-          className="w-px h-10 animate-pulse"
-          style={{ backgroundColor: GOLD_S }}
-        />
+        <div className="w-px h-10 bg-gold/30 animate-pulse" />
       </motion.div>
     </section>
   )
