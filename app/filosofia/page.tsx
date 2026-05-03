@@ -153,7 +153,7 @@ export default function FilosofiaPage() {
           >
             {filosofiaData.pilares.map((pilar) => (
               <motion.div key={pilar.id} variants={fadeUpVariants}>
-                <span className="font-display text-6xl font-light text-gold/25 block mb-6 leading-none">
+                <span className="font-mono text-5xl font-light text-gold/25 block mb-6 leading-none">
                   {pilar.numero}
                 </span>
                 <GoldDividerShort className="mb-6" />
@@ -203,7 +203,7 @@ export default function FilosofiaPage() {
                   className="py-8 border-b border-ink-subtle last:border-0"
                 >
                   <div className="flex gap-4 items-start">
-                    <span className="font-display text-gold/30 text-2xl font-light shrink-0 leading-none pt-1">
+                    <span className="font-mono text-gold/30 text-xl font-light shrink-0 leading-none pt-1">
                       {String(i + 1).padStart(2, '0')}
                     </span>
                     <div>

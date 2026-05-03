@@ -71,7 +71,7 @@ export function Filosofia() {
                 variants={fadeRightVariants}
                 className="flex gap-6 pb-10 mb-10 border-b border-white/10 last:border-0 last:pb-0 last:mb-0"
               >
-                <span className="font-display text-5xl font-light text-gold/30 shrink-0 leading-none pt-1">
+                <span className="font-mono text-4xl font-light text-gold/30 shrink-0 leading-none pt-1">
                   {pilar.numero}
                 </span>
                 <div>

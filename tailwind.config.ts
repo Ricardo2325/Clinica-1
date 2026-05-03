@@ -30,6 +30,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-cormorant)', 'Georgia', 'serif'],
         body:    ['var(--font-dm-sans)', 'sans-serif'],
+        mono:    ['var(--font-dm-mono)', 'monospace'],
       },
       borderRadius: {
         '4xl': '2rem',

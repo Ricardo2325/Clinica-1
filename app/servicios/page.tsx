@@ -256,7 +256,7 @@ export default function ServiciosPage() {
                 variants={staggerItem}
                 className="bg-midnight p-8 lg:p-10"
               >
-                <span className="font-display text-5xl font-light text-gold/25 block mb-6 leading-none">
+                <span className="font-mono text-4xl font-light text-gold/25 block mb-6 leading-none">
                   {paso.paso}
                 </span>
                 <GoldDividerShort className="mb-5 opacity-30" />

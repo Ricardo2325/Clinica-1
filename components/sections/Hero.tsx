@@ -106,7 +106,7 @@ export function Hero() {
           >
             {stats.map((stat) => (
               <div key={stat.label}>
-                <span className="font-display text-3xl font-light text-midnight block leading-none">
+                <span className="font-mono text-3xl font-light text-midnight block leading-none">
                   {stat.valor}
                 </span>
                 <span className="text-[10px] font-body text-muted uppercase tracking-[0.16em] mt-1 block">
