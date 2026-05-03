@@ -28,19 +28,19 @@ export function Hero() {
         {/* Backdrop blur strip */}
         <div className="absolute top-0 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md" />
 
-        {/* Wide ambient glow — pushed to ~200px to iluminar el título */}
+        {/* Wide ambient glow — concentrado arriba, se desvanece por blur */}
         <div
-          className="absolute inset-auto z-50 h-48 w-[36rem] rounded-full blur-3xl"
-          style={{ backgroundColor: GOLD, opacity: 0.6, transform: 'translateY(140%)' }}
+          className="absolute inset-auto z-50 h-32 w-[24rem] rounded-full blur-3xl"
+          style={{ backgroundColor: GOLD, opacity: 0.28, transform: 'translateY(50%)' }}
         />
 
-        {/* Tight core glow — anclado en el top */}
+        {/* Tight core glow — punto brillante en el filamento */}
         <motion.div
-          initial={{ width: '8rem' }}
-          animate={{ width: '20rem' }}
+          initial={{ width: '6rem' }}
+          animate={{ width: '14rem' }}
           transition={{ ease: 'easeInOut', delay: 0.3, duration: 0.8 }}
-          className="absolute top-0 z-30 h-36 rounded-full blur-2xl"
-          style={{ backgroundColor: GOLD, transform: 'translateY(-20%)' }}
+          className="absolute top-0 z-30 h-28 rounded-full blur-2xl"
+          style={{ backgroundColor: GOLD, opacity: 0.7, transform: 'translateY(-10%)' }}
         />
 
         {/* Filament line */}
