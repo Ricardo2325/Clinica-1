@@ -31,11 +31,8 @@ export function Navbar() {
 
   return (
     <nav
-      className="sticky top-0 z-50 border-b transition-colors duration-300"
-      style={{
-        backgroundColor: scrolled ? 'rgba(250,250,248,1)' : 'rgba(250,250,248,0)',
-        borderBottomColor: scrolled ? 'rgba(10,22,40,0.08)' : 'rgba(10,22,40,0)',
-      }}
+      className="fixed top-0 left-0 right-0 border-b transition-colors duration-300"
+      style={{ zIndex: 9999, backgroundColor: '#FAFAF8', borderBottomColor: scrolled ? 'rgba(10,22,40,0.08)' : 'rgba(10,22,40,0)' }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16 lg:h-20">

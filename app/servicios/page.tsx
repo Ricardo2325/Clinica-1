@@ -149,7 +149,7 @@ export default function ServiciosPage() {
       
 
       {/* Hero */}
-      <section className="bg-ivory pt-20 pb-24">
+      <section className="bg-ivory pt-28 pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             variants={staggerContainerSlow}
