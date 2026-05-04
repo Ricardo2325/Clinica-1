@@ -14,7 +14,7 @@ import {
 } from '@/lib/animations'
 import { filosofiaData } from '@/lib/filosofia'
 import { clinicaData } from '@/lib/data'
-import { Navbar } from '@/components/Navbar'
+
 import { Footer } from '@/components/sections/Footer'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GoldDividerShort } from '@/components/ui/GoldDivider'
@@ -73,7 +73,7 @@ const equipo = [
 export default function FilosofiaPage() {
   return (
     <>
-      <Navbar dark />
+      
 
       {/* Hero de la página */}
       <section className="bg-midnight pt-40 pb-32">

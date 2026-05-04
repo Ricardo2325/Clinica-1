@@ -2,14 +2,14 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { staggerContainerSlow, staggerItem, fadeLeftVariants, lineExpandVariants } from '@/lib/animations'
-import { Navbar } from '@/components/Navbar'
+
 import { Footer } from '@/components/sections/Footer'
 import { clinicaData } from '@/lib/data'
 
 export default function AvisoLegalPage() {
   return (
     <>
-      <Navbar dark />
+      
 
       <section className="bg-midnight pt-40 pb-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">

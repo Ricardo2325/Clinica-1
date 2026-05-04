@@ -13,7 +13,7 @@ import {
   viewportConfig,
 } from '@/lib/animations'
 import { antesDespuesCasos } from '@/lib/data'
-import { Navbar } from '@/components/Navbar'
+
 import { Footer } from '@/components/sections/Footer'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { Button } from '@/components/ui/Button'
@@ -27,7 +27,7 @@ const casoImages = [
 export default function TransformacionesPage() {
   return (
     <>
-      <Navbar dark />
+      
 
       {/* Hero */}
       <section className="bg-midnight pt-40 pb-32">

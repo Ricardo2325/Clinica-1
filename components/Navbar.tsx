@@ -1,9 +1,12 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { mobileMenuVariants, staggerItem } from '@/lib/animations'
 import { Button } from '@/components/ui/Button'
+
+const DARK_ROUTES = ['/filosofia', '/transformaciones', '/privacidad', '/aviso-legal', '/cookies']
 
 const navLinks = [
   { label: 'Filosofía', href: '/filosofia' },
@@ -12,7 +15,8 @@ const navLinks = [
   { label: 'Contacto', href: '/#contacto' },
 ]
 
-export function Navbar({ dark = false }: { dark?: boolean }) {
+export function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -22,6 +26,7 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
+  const dark = DARK_ROUTES.includes(pathname)
   const lightText = dark && !scrolled
 
   return (

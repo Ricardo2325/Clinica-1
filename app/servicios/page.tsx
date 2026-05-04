@@ -13,7 +13,7 @@ import {
   viewportConfig,
 } from '@/lib/animations'
 import { serviciosDetalle, type Servicio } from '@/lib/servicios_detalle'
-import { Navbar } from '@/components/Navbar'
+
 import { Footer } from '@/components/sections/Footer'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GoldDividerShort } from '@/components/ui/GoldDivider'
@@ -146,7 +146,7 @@ function ServicioDetalle({ servicio }: { servicio: Servicio }) {
 export default function ServiciosPage() {
   return (
     <>
-      <Navbar />
+      
 
       {/* Hero */}
       <section className="bg-ivory pt-40 pb-24">
