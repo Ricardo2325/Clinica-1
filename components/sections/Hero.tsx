@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import {
   staggerContainerSlow,
   staggerItem,
@@ -38,6 +39,15 @@ const contactItems = [
 ]
 
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(true)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
   return (
     <section className="relative flex flex-col md:flex-row min-h-screen w-full overflow-hidden bg-ivory">
 
@@ -134,7 +144,7 @@ export function Hero() {
       <motion.div
         className="relative mx-6 w-auto h-72 md:mx-0 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]"
         initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
-        animate={{ clipPath: 'polygon(0% 0, 100% 0, 100% 100%, 0% 100%)' }}
+        animate={{ clipPath: isMobile ? 'polygon(0% 0, 100% 0, 100% 100%, 0% 100%)' : 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)' }}
         transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
         <Image
