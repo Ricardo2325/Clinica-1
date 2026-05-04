@@ -36,32 +36,37 @@ export function Servicios() {
           </motion.h2>
         </motion.div>
 
-        {/* Lista de servicios */}
+        {/* Grid de servicios */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={viewportConfig}
-          className="divide-y divide-ink-subtle"
+          className="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink-subtle"
         >
           {serviciosDetalle.map((servicio, i) => (
-            <motion.div key={servicio.id} variants={staggerItem}>
+            <motion.div key={servicio.id} variants={staggerItem} className="bg-ivory">
               <Link
                 href="/servicios"
-                className="group flex items-center justify-between py-7 gap-6 hover:pl-2 transition-all duration-300"
+                className="group flex items-start justify-between p-8 lg:p-10 gap-6 hover:bg-white transition-colors duration-300 h-full"
               >
-                <div className="flex items-baseline gap-5">
-                  <span className="font-mono text-xs text-gold/40 shrink-0">
+                <div className="flex gap-6 items-start">
+                  <span className="font-mono text-3xl font-light text-gold/20 group-hover:text-gold/40 transition-colors shrink-0 leading-none pt-1">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div>
-                    <h3 className="font-display text-xl font-light text-midnight group-hover:text-gold transition-colors">
+                    {servicio.destacado && (
+                      <span className="text-[10px] font-body font-medium text-gold uppercase tracking-wider mb-2 block">
+                        Más solicitado
+                      </span>
+                    )}
+                    <h3 className="font-display text-2xl lg:text-3xl font-light text-midnight group-hover:text-gold transition-colors mb-2">
                       {servicio.nombre}
                     </h3>
-                    <p className="text-sm text-muted font-body mt-0.5">{servicio.tagline}</p>
+                    <p className="text-sm text-muted font-body leading-relaxed">{servicio.tagline}</p>
                   </div>
                 </div>
-                <span className="text-gold/40 group-hover:text-gold group-hover:translate-x-1 transition-all shrink-0">
+                <span className="text-gold/30 group-hover:text-gold group-hover:translate-x-1 transition-all shrink-0 mt-1 text-lg">
                   →
                 </span>
               </Link>

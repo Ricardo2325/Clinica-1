@@ -13,8 +13,8 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const casoImages = [
   '/images/antes-despues/antes_despues1.webp',
-  '/images/antes-despues/antes_despues1.webp',
-  '/images/antes-despues/antes_despues1.webp',
+  '/images/antes-despues/antes_despues2.webp',
+  '/images/antes-despues/antes_despues3.webp',
 ]
 
 interface Caso {

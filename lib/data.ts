@@ -45,6 +45,33 @@ export const testimonios = [
     iniciales: 'LP',
     valoracion: 5,
   },
+  {
+    id: 4,
+    nombre: 'Andrés M.',
+    edad: 42,
+    tratamiento: 'Diseño digital de sonrisa',
+    texto: 'Desde el primer día me mostraron exactamente cómo iba a quedar. Sin sorpresas, sin incertidumbre. Salí de la clínica con la sonrisa que vi en pantalla.',
+    iniciales: 'AM',
+    valoracion: 5,
+  },
+  {
+    id: 5,
+    nombre: 'Sofía R.',
+    edad: 29,
+    tratamiento: 'Blanqueamiento profesional',
+    texto: 'Resultado inmediato y sin sensibilidad. Llevaba tiempo buscando algo así y ninguna clínica me había dado tanta seguridad antes de empezar.',
+    iniciales: 'SR',
+    valoracion: 5,
+  },
+  {
+    id: 6,
+    nombre: 'Javier T.',
+    edad: 55,
+    tratamiento: 'Implante + corona de zirconio',
+    texto: 'Tenía miedo a la cirugía. El equipo fue tan claro y tranquilo en todo momento que apenas lo noté. Hoy no distingo cuál es el implante.',
+    iniciales: 'JT',
+    valoracion: 5,
+  },
 ]
 
 export const antesDespuesCasos = [
