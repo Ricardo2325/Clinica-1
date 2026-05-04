@@ -3,10 +3,10 @@ import { GoldDivider } from '@/components/ui/GoldDivider'
 import { clinicaData } from '@/lib/data'
 
 const serviciosLinks = [
-  { label: 'Carillas de Porcelana', href: '#servicios' },
-  { label: 'Implantes Dentales', href: '#servicios' },
-  { label: 'Ortodoncia Invisible', href: '#servicios' },
-  { label: 'Blanqueamiento Profesional', href: '#servicios' },
+  { label: 'Carillas de Porcelana', href: '/servicios' },
+  { label: 'Implantes Dentales', href: '/servicios' },
+  { label: 'Ortodoncia Invisible', href: '/servicios' },
+  { label: 'Blanqueamiento Profesional', href: '/servicios' },
 ]
 
 const legalesLinks = [

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button'
 const navLinks = [
   { label: 'Filosofía', href: '/filosofia' },
   { label: 'Servicios', href: '/servicios' },
-  { label: 'Transformaciones', href: '/#antes-despues' },
+  { label: 'Transformaciones', href: '/transformaciones' },
   { label: 'Contacto', href: '/#contacto' },
 ]
 
@@ -35,7 +35,7 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
         <div className="flex items-center justify-between h-16 lg:h-20">
 
           {/* Logo */}
-          <Link href="#inicio" className="flex flex-col leading-none">
+          <Link href="/" className="flex flex-col leading-none">
             <span className={`font-display font-light text-xl tracking-[0.3em] uppercase transition-colors duration-300 ${lightText ? 'text-white' : 'text-midnight'}`}>
               Aureum
             </span>
@@ -59,7 +59,7 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
 
           {/* CTA desktop */}
           <div className="hidden lg:block">
-            <Button variant="gold" size="sm" href="#contacto">
+            <Button variant="gold" size="sm" href="/#contacto">
               Primera visita
             </Button>
           </div>
@@ -109,7 +109,7 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
                   </motion.div>
                 ))}
                 <motion.div variants={staggerItem} className="pt-4 pb-2">
-                  <Button variant="gold" size="md" href="#contacto">
+                  <Button variant="gold" size="md" href="/#contacto">
                     Primera visita
                   </Button>
                 </motion.div>
