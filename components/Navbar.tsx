@@ -12,7 +12,7 @@ const navLinks = [
   { label: 'Contacto', href: '/#contacto' },
 ]
 
-export function Navbar() {
+export function Navbar({ dark = false }: { dark?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -21,6 +21,9 @@ export function Navbar() {
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  // When hero is dark and nav is still transparent, flip to white text
+  const lightText = dark && !scrolled
 
   return (
     <motion.nav
@@ -33,7 +36,7 @@ export function Navbar() {
 
           {/* Logo */}
           <Link href="#inicio" className="flex flex-col leading-none">
-            <span className="font-display font-light text-xl tracking-[0.3em] text-midnight uppercase">
+            <span className={`font-display font-light text-xl tracking-[0.3em] uppercase transition-colors duration-300 ${lightText ? 'text-white' : 'text-midnight'}`}>
               Aureum
             </span>
             <span className="font-body text-[9px] tracking-[0.28em] text-gold uppercase mt-0.5">
@@ -47,7 +50,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-body text-xs uppercase tracking-[0.14em] text-ink-muted hover:text-midnight transition-colors duration-200"
+                className={`font-body text-xs uppercase tracking-[0.14em] transition-colors duration-200 ${lightText ? 'text-white/70 hover:text-white' : 'text-ink-muted hover:text-midnight'}`}
               >
                 {link.label}
               </Link>
@@ -70,15 +73,15 @@ export function Navbar() {
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-              className="w-5 h-px bg-midnight block origin-center transition-transform"
+              className={`w-5 h-px block origin-center transition-colors duration-300 ${lightText ? 'bg-white' : 'bg-midnight'}`}
             />
             <motion.span
               animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="w-5 h-px bg-midnight block"
+              className={`w-5 h-px block transition-colors duration-300 ${lightText ? 'bg-white' : 'bg-midnight'}`}
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-              className="w-5 h-px bg-midnight block origin-center"
+              className={`w-5 h-px block origin-center transition-colors duration-300 ${lightText ? 'bg-white' : 'bg-midnight'}`}
             />
           </button>
         </div>

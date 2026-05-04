@@ -73,7 +73,7 @@ const equipo = [
 export default function FilosofiaPage() {
   return (
     <>
-      <Navbar />
+      <Navbar dark />
 
       {/* Hero de la página */}
       <section className="bg-midnight pt-40 pb-32">
