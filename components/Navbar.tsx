@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { navbarVariants, mobileMenuVariants, staggerItem } from '@/lib/animations'
+import { mobileMenuVariants, staggerItem } from '@/lib/animations'
 import { Button } from '@/components/ui/Button'
 
 const navLinks = [
@@ -22,14 +22,17 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  // When hero is dark and nav is still transparent, flip to white text
   const lightText = dark && !scrolled
 
   return (
-    <motion.nav
-      variants={navbarVariants}
-      animate={scrolled ? 'solid' : 'transparent'}
-      className="fixed top-0 left-0 right-0 z-50 border-b"
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300"
+      style={{
+        backgroundColor: scrolled ? 'rgba(250,250,248,0.95)' : 'rgba(250,250,248,0)',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottomColor: scrolled ? 'rgba(10,22,40,0.08)' : 'rgba(10,22,40,0)',
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -50,7 +53,13 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-body text-xs uppercase tracking-[0.14em] transition-colors duration-200 ${lightText ? 'text-white/70 hover:text-white' : scrolled ? 'text-ink-muted hover:text-midnight' : 'text-midnight hover:text-gold'}`}
+                className={`font-body text-xs uppercase tracking-[0.14em] transition-colors duration-200 ${
+                  lightText
+                    ? 'text-white/70 hover:text-white'
+                    : scrolled
+                    ? 'text-ink-muted hover:text-midnight'
+                    : 'text-midnight hover:text-gold'
+                }`}
               >
                 {link.label}
               </Link>
@@ -123,6 +132,6 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   )
 }
