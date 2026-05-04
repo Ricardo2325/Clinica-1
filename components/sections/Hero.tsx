@@ -130,38 +130,34 @@ export function Hero() {
         </motion.footer>
       </motion.div>
 
-      {/* ── Right panel — 55%, clip-path reveal ─────────────────────── */}
+      {/* ── Right panel — mobile: flujo normal debajo del texto / desktop: absolute derecha ── */}
       <motion.div
-        className="absolute inset-y-0 right-0 w-full md:w-[58%]"
+        className="relative w-full h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]"
         initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
-        animate={{ clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)' }}
+        animate={{ clipPath: 'polygon(0% 0, 100% 0, 100% 100%, 0% 100%)' }}
         transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       >
-        {/* Image — reemplazar src con foto real de la clínica */}
         <Image
           src="/images/clinica/dentista1.jpg"
           alt="Clínica Aureum Dental — Madrid"
           fill
           priority
           className="object-cover object-center"
-          sizes="58vw"
+          sizes="(max-width: 768px) 100vw, 58vw"
         />
 
-        {/* Overlay: borde izquierdo suave para fundir con ivory */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ivory to-transparent z-10" />
+        {/* Overlay izquierdo — solo desktop */}
+        <div className="hidden md:block absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ivory to-transparent z-10" />
 
-        {/* Overlay: top gradient para que el nav sea legible sobre la foto */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-ivory/90 to-transparent z-10" />
-
-        {/* Overlay: viñeta bottom */}
+        {/* Overlay bottom */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-midnight/20 to-transparent z-10" />
 
-        {/* Año fundación — detalle editorial en la esquina */}
+        {/* Año fundación */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          className="absolute bottom-8 right-8 z-20 text-right"
+          className="absolute bottom-6 right-6 z-20 text-right"
         >
           <span className="font-display text-xs font-light text-white/60 uppercase tracking-[0.2em]">
             Est. {clinicaData.añosFundacion}
