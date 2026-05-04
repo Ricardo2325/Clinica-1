@@ -151,6 +151,9 @@ export function Hero() {
         {/* Overlay: borde izquierdo suave para fundir con ivory */}
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-ivory to-transparent z-10" />
 
+        {/* Overlay: top gradient para que el nav sea legible sobre la foto */}
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-ivory/90 to-transparent z-10" />
+
         {/* Overlay: viñeta bottom */}
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-midnight/20 to-transparent z-10" />
 
