@@ -132,7 +132,7 @@ export function Hero() {
 
       {/* ── Right panel — mobile: flujo normal debajo del texto / desktop: absolute derecha ── */}
       <motion.div
-        className="relative w-full h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]"
+        className="relative mx-6 w-auto h-72 md:mx-0 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]"
         initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
         animate={{ clipPath: 'polygon(0% 0, 100% 0, 100% 100%, 0% 100%)' }}
         transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
