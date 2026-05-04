@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
   staggerContainer,
@@ -48,6 +49,7 @@ const equipo = [
     especialidad: 'Odontología estética · Directora clínica',
     descripcion:
       'Más de 15 años diseñando sonrisas. Formación en la Universidad de Bolonia y en la NYU School of Dentistry. Especialista en carillas de porcelana y diseño digital de sonrisa.',
+    foto: '/images/equipo/dentista1.webp',
     iniciales: 'ER',
   },
   {
@@ -55,6 +57,7 @@ const equipo = [
     especialidad: 'Implantología y cirugía oral',
     descripcion:
       'Experto en implantología digital y cirugía guiada. Más de 2.000 implantes colocados. Formación especializada en Suecia e Israel.',
+    foto: '/images/equipo/dentista2.webp',
     iniciales: 'MV',
   },
   {
@@ -62,6 +65,7 @@ const equipo = [
     especialidad: 'Ortodoncia invisible · Oclusión',
     descripcion:
       'Especialista en alineadores y tratamientos de oclusión funcional. Formadora certificada en técnicas de ortodoncia digital.',
+    foto: '/images/equipo/dentista3.webp',
     iniciales: 'SN',
   },
 ]
@@ -253,10 +257,14 @@ export default function FilosofiaPage() {
                 variants={staggerItem}
                 className="bg-midnight p-8 lg:p-10"
               >
-                <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center mb-6">
-                  <span className="font-display text-xl font-light text-gold">
-                    {miembro.iniciales}
-                  </span>
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border border-gold/30 mb-6">
+                  <Image
+                    src={miembro.foto}
+                    alt={miembro.nombre}
+                    fill
+                    className="object-cover object-top"
+                    sizes="80px"
+                  />
                 </div>
                 <h3 className="font-body font-medium text-white mb-1">{miembro.nombre}</h3>
                 <p className="text-xs text-gold uppercase tracking-wider font-body mb-4">

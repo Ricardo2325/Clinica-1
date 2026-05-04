@@ -140,7 +140,7 @@ export function Hero() {
       >
         {/* Image — reemplazar src con foto real de la clínica */}
         <Image
-          src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=1400&q=90"
+          src="/images/clinica/dentista1.jpg"
           alt="Clínica Aureum Dental — Madrid"
           fill
           priority
