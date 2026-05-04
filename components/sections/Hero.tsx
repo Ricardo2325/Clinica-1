@@ -39,7 +39,7 @@ const contactItems = [
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen w-full overflow-hidden bg-ivory">
+    <section className="relative flex flex-col md:flex-row min-h-screen w-full overflow-hidden bg-ivory">
 
       {/* ── Left panel — 45% ─────────────────────────────────────────── */}
       <motion.div
