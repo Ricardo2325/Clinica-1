@@ -50,7 +50,7 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`font-body text-xs uppercase tracking-[0.14em] transition-colors duration-200 ${lightText ? 'text-white/70 hover:text-white' : 'text-ink-muted hover:text-midnight'}`}
+                className={`font-body text-xs uppercase tracking-[0.14em] transition-colors duration-200 ${lightText ? 'text-white/70 hover:text-white' : scrolled ? 'text-ink-muted hover:text-midnight' : 'text-midnight hover:text-gold'}`}
               >
                 {link.label}
               </Link>
