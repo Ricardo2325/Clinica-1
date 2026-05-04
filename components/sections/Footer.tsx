@@ -11,7 +11,7 @@ const serviciosLinks = [
 
 const legalesLinks = [
   { label: 'Política de privacidad', href: '/privacidad' },
-  { label: 'Aviso legal', href: '#' },
+  { label: 'Aviso legal', href: '/aviso-legal' },
   { label: 'Cookies', href: '#' },
 ]
 
