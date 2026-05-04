@@ -46,7 +46,7 @@ export function Hero() {
         variants={staggerContainerSlow}
         initial="hidden"
         animate="visible"
-        className="relative z-10 flex w-full flex-col justify-between px-8 py-10 md:w-[45%] md:px-12 lg:px-16 xl:px-20"
+        className="relative z-10 flex w-full flex-col justify-between px-8 py-10 bg-ivory md:bg-transparent md:w-[45%] md:px-12 lg:px-16 xl:px-20"
       >
         <div className="h-16 lg:h-20" />
 
