@@ -26,8 +26,7 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  const dark = DARK_ROUTES.includes(pathname)
-  const lightText = dark && !scrolled
+  const lightText = false // fondo siempre solido, texto siempre oscuro
 
   return (
     <nav
