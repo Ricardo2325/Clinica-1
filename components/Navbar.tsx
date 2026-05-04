@@ -59,7 +59,12 @@ export function Navbar({ dark = false }: { dark?: boolean }) {
 
           {/* CTA desktop */}
           <div className="hidden lg:block">
-            <Button variant="gold" size="sm" href="/#contacto">
+            <Button
+              variant="gold"
+              size="sm"
+              href="/#contacto"
+              className={!scrolled ? 'bg-gold text-midnight hover:bg-gold-light' : ''}
+            >
               Primera visita
             </Button>
           </div>
