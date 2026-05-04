@@ -48,8 +48,8 @@ export function Hero() {
         animate="visible"
         className="relative z-10 flex w-full flex-col justify-between px-8 py-10 md:w-[45%] md:px-12 lg:px-16 xl:px-20"
       >
-        {/* Top: logo placeholder (Navbar is fixed, so just vertical spacer) */}
-        <div className="h-16 lg:h-20" />
+        {/* Top spacer — nav is sticky so no extra offset needed */}
+        <div className="h-8 lg:h-12" />
 
         {/* Main content */}
         <div className="flex-1 flex flex-col justify-center py-12">

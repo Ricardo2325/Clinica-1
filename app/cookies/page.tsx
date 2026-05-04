@@ -11,7 +11,7 @@ export default function CookiesPage() {
     <>
       
 
-      <section className="bg-midnight pt-40 pb-24">
+      <section className="bg-midnight pt-20 pb-24">
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
           <motion.div variants={staggerContainerSlow} initial="hidden" animate="visible">
             <motion.div variants={staggerItem}>

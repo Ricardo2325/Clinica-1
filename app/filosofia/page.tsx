@@ -76,7 +76,7 @@ export default function FilosofiaPage() {
       
 
       {/* Hero de la página */}
-      <section className="bg-midnight pt-40 pb-32">
+      <section className="bg-midnight pt-20 pb-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <motion.div
             variants={staggerContainerSlow}
