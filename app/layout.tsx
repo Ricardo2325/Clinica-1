@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from 'next/font/google'
 import { Navbar } from '@/components/Navbar'
+import { FloatingButtons } from '@/components/ui/FloatingButtons'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${cormorant.variable} ${dmSans.variable} ${dmMono.variable} font-body bg-ivory text-midnight antialiased`}>
         <Navbar />
         {children}
+        <FloatingButtons />
       </body>
     </html>
   )
